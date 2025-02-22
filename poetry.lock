@@ -24,6 +24,21 @@ files = [
 ]
 
 [[package]]
+name = "python-dotenv"
+version = "1.0.1"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "python-dotenv-1.0.1.tar.gz", hash = "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"},
+    {file = "python_dotenv-1.0.1-py3-none-any.whl", hash = "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"},
+]
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
 name = "rsa"
 version = "4.2"
 description = "Pure-Python RSA implementation"
@@ -59,4 +74,4 @@ cryptg = ["cryptg"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12"
-content-hash = "d392d6c92da64050aaa6b0d60ded1f08e64f35c4ca3e38d04a5d956a51953cd0"
+content-hash = "e8b4b335da3881f5b24c5c01a047dc845fbdde1d8c052f67fac25d33f8e7d245"
