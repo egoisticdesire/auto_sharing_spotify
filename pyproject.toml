@@ -3,14 +3,18 @@ name = "auto-sharing-spotify"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "egoistic_desire",email = "egoistic.desire@gmail.com"}
+    { name = "egoistic_desire", email = "egoistic.desire@gmail.com" }
 ]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "telethon (>=1.39.0,<2.0.0)"
 ]
 
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
