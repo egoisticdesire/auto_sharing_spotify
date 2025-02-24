@@ -115,7 +115,7 @@ That was inconvenient for me, so I created a solution using __Python__, __AppleS
       source . venv/bin/activate
       python main.py
       ```
-    - Under “__Pass input__”, select: B stdin.
+    - Under “__Pass input__”, select: `stdin`.
     - (_Optional_) Add a condition based on the script's execution result:
         - If `Shell script result contains ERROR` (_text_), for example, send a notification.
         - Otherwise, leave it empty.
