@@ -22,19 +22,15 @@
 3. Получить __TARGET_USER_ID__ пользователя, которому нужно отправить трек (например, через `@getmyid_bot` в __Telegram
    __);
 4. Переименовать скрытый файл __.env.example__ в __.env__: \
-   `cd auto_sharing_spotify && mv .env.example .env`;
+   `cd auto_sharing_spotify && mv .env.example .env`
 5. Заполнить __API_ID__, __API_HASH__ и __TARGET_USER_ID__ в __.env__;
-6. Создать и активировать виртуальное окружение:
-    - если __Poetry__ не установлен: \
-      `python -m venv .venv && source .venv/bin/activate`;
-7. Установить зависимости:
-    - если используется __Poetry__: \
-      `poetry install`;
-    - если без __Poetry__: \
-      `pip install -r requirements.txt`;
+6. Создать и активировать виртуальное окружение: \
+   `python -m venv .venv && source .venv/bin/activate`
+7. Установить зависимости: \
+   `pip install -r requirements.txt`
 8. На этом этапе сам скрипт уже готов к использованию:
     - Первый запуск необходимо выполнить вручную (__не __Shortcuts.app____): \
-      `python main.py`;
+      `python main.py`
     - Будет запрошен номер телефона или токен бота для аутентификации (это
       механизмы __Telegram__):
         1. _если указать номер телефона, сообщения будут отправляться от имени владельца аккаунта (личным сообщением или
@@ -85,19 +81,15 @@ That was inconvenient for me, so I created a solution using __Python__, __AppleS
 2. Get your __API_ID__ and __API_HASH__ from [Telegram](https://my.telegram.org).
 3. Get the __TARGET_USER_ID__ of the recipient (for example, using `@getmyid_bot` in __Telegram__).
 4. Rename the hidden file __.env.example__ to __.env__: \
-   `cd auto_sharing_spotify && mv .env.example .env`;
+   `cd auto_sharing_spotify && mv .env.example .env`
 5. Fill in the __API_ID__, __API_HASH__, and __TARGET_USER_ID__ fields in the __.env__ file.
-6. Create and activate a virtual environment:
-    - If __Poetry__ is not installed: \
-      `python -m venv .venv && source .venv/bin/activate`;
-7. Install dependencies:
-    - If using __Poetry__: \
-      `poetry install`;
-    - If not using __Poetry__: \
-      `pip install -r requirements.txt`;
+6. Create and activate a virtual environment: \
+   `python -m venv .venv && source .venv/bin/activate`
+7. Install dependencies: \
+   `pip install -r requirements.txt`
 8. At this point, the script is ready for use:
     - first run must be done manually (__not__ via __Shortcuts.app__): \
-      `python main.py`;
+      `python main.py`
     - The script will prompt for either a phone number or a bot token for authentication (__Telegram__ mechanism):
         1. If you enter a phone number, messages will be sent from your personal account (as a private message or to
            __Saved Messages__ if sending to yourself).
