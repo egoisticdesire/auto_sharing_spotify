@@ -1,6 +1,8 @@
-import subprocess
 import logging
+import subprocess
+
 from telethon.sync import TelegramClient
+
 from config import settings
 
 logging.basicConfig(
