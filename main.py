@@ -8,14 +8,14 @@ load_dotenv()
 
 API_ID = os.getenv("API_ID")
 API_HASH = os.getenv("API_HASH")
-USER_IDENTIFIER = os.getenv("USER_IDENTIFIER")
+TARGET_USER_ID = os.getenv("TARGET_USER_ID")
 
-if not API_ID or not API_HASH or not USER_IDENTIFIER:
+if not API_ID or not API_HASH or not TARGET_USER_ID:
     # raise ValueError("❌ All environment variables are not set!")
     raise ValueError("❌ Не заданы все переменные окружения!")
 
 API_ID = int(API_ID)
-USER_IDENTIFIER = int(USER_IDENTIFIER)
+TARGET_USER_ID = int(TARGET_USER_ID)
 
 
 def get_spotify_track():
@@ -52,7 +52,7 @@ def send_track():
         # message = f'🎵 <b>Spotify</b> is playing now:\n🔥 <b><a href="{track_url}">{track_title}</a></b>'
         message = f'🎵 В <b>Spotify</b> сейчас играет:\n🔥 <b><a href="{track_url}">{track_title}</a></b>'
         client.send_message(
-            USER_IDENTIFIER,
+            TARGET_USER_ID,
             message,
             parse_mode="html",
             link_preview=False,
