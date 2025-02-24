@@ -3,23 +3,12 @@ import subprocess
 
 from dotenv import load_dotenv
 from telethon.sync import TelegramClient
+from config import settings
 
-load_dotenv()
-
-API_ID = os.getenv("API_ID")
-API_HASH = os.getenv("API_HASH")
-TARGET_USER_ID = os.getenv("TARGET_USER_ID")
-
-if not API_ID or not API_HASH or not TARGET_USER_ID:
-    # raise ValueError("❌ All environment variables are not set!")
-    raise ValueError("❌ Не заданы все переменные окружения!")
-
-API_ID = int(API_ID)
-TARGET_USER_ID = int(TARGET_USER_ID)
 
 
 def get_spotify_track():
-    script = """
+    apple_script = """
     tell application "Spotify"
         if player state is playing then
             set trackID to id of current track
@@ -31,14 +20,22 @@ def get_spotify_track():
         end if
     end tell
     """
+
     try:
-        result = subprocess.check_output(["osascript", "-e", script]).decode("utf-8").strip()
+        result = (
+            subprocess.check_output(["osascript", "-e", apple_script])
+            .decode("utf-8")
+            .strip()
+        )
+
         if not result:
             return None, None
+
         track_id, track_title = result.split("|||")
-        track_url = f"https://open.spotify.com/track/{track_id.split(":")[-1]}"
+        track_url = f'{settings.spotify.url}{track_id.split(":")[-1]}'
         return track_url, track_title
-    except subprocess.CalledProcessError:
+
+    except subprocess.CalledProcessError as e:
         return None, None
 
 
@@ -48,14 +45,22 @@ def send_track():
         print("ERROR")  # Report Shortcuts.app that the track is not played
         return
 
-    with TelegramClient("session", API_ID, API_HASH) as client:
-        # message = f'🎵 <b>Spotify</b> is playing now:\n🔥 <b><a href="{track_url}">{track_title}</a></b>'
-        message = f'🎵 В <b>Spotify</b> сейчас играет:\n🔥 <b><a href="{track_url}">{track_title}</a></b>'
+    with TelegramClient(
+        settings.tg.session,
+        settings.tg.api_id,
+        settings.tg.api_hash,
+    ) as client:
+        message_suffix = f'🔥 <b><a href="{track_url}">{track_title}</a></b>'
+        if "ru" in settings.system.language.lower():
+            message = f"🎵 В <b>Spotify</b> сейчас играет:\n{message_suffix}"
+        else:
+            message = f"🎵 <b>Spotify</b> is playing now:\n{message_suffix}"
+
         client.send_message(
-            TARGET_USER_ID,
-            message,
-            parse_mode="html",
-            link_preview=False,
+            entity=settings.tg.target_user_id,
+            message=message,
+            parse_mode=settings.tg.parse_mode,
+            link_preview=settings.tg.link_preview,
         )
         print("OK")  # Report Shortcuts.app that everything is successful
 
