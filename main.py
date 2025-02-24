@@ -11,6 +11,7 @@ API_HASH = os.getenv("API_HASH")
 USER_IDENTIFIER = os.getenv("USER_IDENTIFIER")
 
 if not API_ID or not API_HASH or not USER_IDENTIFIER:
+    # raise ValueError("❌ All environment variables are not set!")
     raise ValueError("❌ Не заданы все переменные окружения!")
 
 API_ID = int(API_ID)
@@ -44,18 +45,19 @@ def get_spotify_track():
 def send_track():
     track_url, track_title = get_spotify_track()
     if not track_url:
-        print("ERROR")  # Сообщаем Shortcuts.app, что трек не воспроизводится
+        print("ERROR")  # Report Shortcuts.app that the track is not played
         return
 
     with TelegramClient("session", API_ID, API_HASH) as client:
-        message = f"🎵 В <b>Spotify</b> сейчас играет:\n" f'🔥 <b><a href="{track_url}">{track_title}</a></b>'
+        # message = f'🎵 <b>Spotify</b> is playing now:\n🔥 <b><a href="{track_url}">{track_title}</a></b>'
+        message = f'🎵 В <b>Spotify</b> сейчас играет:\n🔥 <b><a href="{track_url}">{track_title}</a></b>'
         client.send_message(
             USER_IDENTIFIER,
             message,
             parse_mode="html",
             link_preview=False,
         )
-        print("OK")  # Сообщаем Shortcuts.app, что всё успешно
+        print("OK")  # Report Shortcuts.app that everything is successful
 
 
 if __name__ == "__main__":
