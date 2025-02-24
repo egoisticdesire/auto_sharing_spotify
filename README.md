@@ -18,12 +18,13 @@
 ## Использование
 
 1. Скачать файлы из этого репозитория;
-2. Получить __API_ID__ и __API_HASH__ от [Telegram](https://my.telegram.org);
-3. Получить __TARGET_USER_ID__ пользователя, которому нужно отправить трек (например, через `@getmyid_bot` в __Telegram
-   __);
+2. Получить `APP__TG__API_ID` и `APP__TG__API_HASH` от [Telegram](https://my.telegram.org);
+3. Получить `APP__TG__TARGET_USER_ID` пользователя, которому нужно отправить трек (например, через `@getmyid_bot` в _
+   _Telegram__);
 4. Переименовать скрытый файл __.env.example__ в __.env__: \
    `cd auto_sharing_spotify && mv .env.example .env`
-5. Заполнить __API_ID__, __API_HASH__ и __TARGET_USER_ID__ в __.env__;
+5. Заполнить `APP__TG__API_ID`, `APP__TG__API_HASH` и `APP__TG__TARGET_USER_ID` в __.env__:
+    - По умолчанию сообщения на английском языке. Чтобы поменять на русский, установите `APP__SYSTEM__LANGUAGE=ru`;
 6. Создать и активировать виртуальное окружение: \
    `python -m venv .venv && source .venv/bin/activate`
 7. Установить зависимости: \
@@ -78,11 +79,12 @@ That was inconvenient for me, so I created a solution using __Python__, __AppleS
 ## Usage
 
 1. Download the files from this repository.
-2. Get your __API_ID__ and __API_HASH__ from [Telegram](https://my.telegram.org).
-3. Get the __TARGET_USER_ID__ of the recipient (for example, using `@getmyid_bot` in __Telegram__).
+2. Get your `APP__TG__API_ID` and `APP__TG__API_HASH` from [Telegram](https://my.telegram.org).
+3. Get the `APP__TG__TARGET_USER_ID` of the recipient (for example, using `@getmyid_bot` in __Telegram__).
 4. Rename the hidden file __.env.example__ to __.env__: \
    `cd auto_sharing_spotify && mv .env.example .env`
-5. Fill in the __API_ID__, __API_HASH__, and __TARGET_USER_ID__ fields in the __.env__ file.
+5. Fill in the `APP__TG__API_ID`, `APP__TG__API_HASH`, and `APP__TG__TARGET_USER_ID` fields in the __.env__ file:
+    - By default, messages are sent in English. To change to Russian, set `APP__SYSTEM__LANGUAGE=ru`
 6. Create and activate a virtual environment: \
    `python -m venv .venv && source .venv/bin/activate`
 7. Install dependencies: \
