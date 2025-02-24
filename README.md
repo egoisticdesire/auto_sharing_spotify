@@ -63,11 +63,7 @@
 
 ---
 
-<div style="text-align: right;">
-
 [back to top](#auto-sharing-spotify-track-to-telegram)
-
-</div>
 
 ## Description
 
@@ -130,8 +126,4 @@ That was inconvenient for me, so I created a solution using __Python__, __AppleS
 
 ---
 
-<div style="text-align: right;">
-
 [back to top](#auto-sharing-spotify-track-to-telegram)
-
-</div>
