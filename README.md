@@ -24,7 +24,7 @@
 4. Переименовать скрытый файл __.env.example__ в __.env__: \
    `cd auto_sharing_spotify && mv .env.example .env`
 5. Заполнить `APP__TG__API_ID`, `APP__TG__API_HASH` и `APP__TG__TARGET_USER_ID` в __.env__:
-    - По умолчанию сообщения на английском языке. Чтобы поменять на русский, установите `APP__SYSTEM__LANGUAGE=ru`;
+    - По умолчанию сообщения на английском языке. Чтобы поменять на русский, установить `APP__SYSTEM__LANGUAGE=ru`;
 6. Создать и активировать виртуальное окружение: \
    `python -m venv .venv && source .venv/bin/activate`
 7. Установить зависимости: \
