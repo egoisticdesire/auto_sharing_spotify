@@ -73,9 +73,9 @@ def send_track() -> None:
             return
 
         with TelegramClient(
-            settings.tg.session,
-            settings.tg.api_id,
-            settings.tg.api_hash,
+            settings.telegram.session,
+            settings.telegram.api_id,
+            settings.telegram.api_hash,
         ) as client:
             message = (
                 settings.spotify.ru_message
@@ -88,10 +88,10 @@ def send_track() -> None:
             )
 
             client.send_message(
-                entity=settings.tg.target_user_id,
+                entity=settings.telegram.target_user_id,
                 message=message,
-                parse_mode=settings.tg.parse_mode,
-                link_preview=settings.tg.link_preview,
+                parse_mode=settings.telegram.parse_mode,
+                link_preview=settings.telegram.link_preview,
             )
             logging.info("Track sent successfully!")
             print("OK")  # Report Shortcuts.app that everything is successful

@@ -28,7 +28,7 @@ class TelegramSettings(BaseModel):
 class Settings(BaseSettings):
     system: SystemSettings = SystemSettings()
     spotify: SpotifySettings = SpotifySettings()
-    tg: TelegramSettings
+    telegram: TelegramSettings
 
     model_config = SettingsConfigDict(
         env_file=".env",
